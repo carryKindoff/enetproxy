@@ -189,7 +189,7 @@ bool events::out::generictext(std::string packet) {
         } else if (find_command(chat, "proxy")) {
             gt::send_log(
                 "/tp [name] (teleports to a player in the world), /ghost (toggles ghost, you wont move for others when its enabled), /uid "
-                "[name] (resolves name to uid), /flag [id] (sets flag to item id), /name [name] (sets name to name)");
+                "[name] (resolves name to uid), /flag [id] (sets flag to item id), /name [name] (sets name to name, /pullall (just u pullall stupid))");
             return true;
         } 
         return false;
