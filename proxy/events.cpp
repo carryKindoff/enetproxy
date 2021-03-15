@@ -115,7 +115,7 @@ bool events::out::generictext(std::string packet) {
                 gt::send_log("Fast Trash is now disabled.");
             return true;
         }        
-        else if (find_command(chat, "wrenchset ")) {
+        else if (find_command(chat, "wrenchset")) {
             mode = chat.substr(10);
             gt::send_log("Wrench mode set to " + mode);
             return true;        
@@ -135,7 +135,7 @@ bool events::out::generictext(std::string packet) {
             g_server->send(false, "action|friends");
             gt::resolving_uid2 = true;
             return true;
-        } else if (find_command(chat, "tp ")) {
+        } else if (find_command(chat, "tp")) {
             std::string name = chat.substr(4);
             std::transform(name.begin(), name.end(), name.begin(), ::tolower);
             for (auto& player : g_server->m_world.players) {
@@ -151,7 +151,7 @@ bool events::out::generictext(std::string packet) {
                 }
             }
             return true;
-        } else if (find_command(chat, "warp ")) {
+        } else if (find_command(chat, "warp")) {
             std::string name = chat.substr(6);
             gt::send_log("`7Warping to " + name);
             g_server->send(false, "action|join_request\nname|" + name, 3);
@@ -171,13 +171,13 @@ bool events::out::generictext(std::string packet) {
                 }
             }
             return true;
-        } else if (find_command(chat, "skin ")) {
+        } else if (find_command(chat, "skin")) {
             int skin = atoi(chat.substr(6).c_str());
             variantlist_t va{ "OnChangeSkin" };
             va[1] = skin;
             g_server->send(true, va, world.local.netid, -1);
             return true;
-        } else if (find_command(chat, "wrench ")) {
+        } else if (find_command(chat, "wrench")) {
             std::string name = chat.substr(6);
             std::string username = ".";
             for (auto& player : g_server->m_world.players) {
